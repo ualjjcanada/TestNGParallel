@@ -29,14 +29,14 @@ public class TLDriverFactory {
             }
         } else if (browser.equals("chrome")) {
             //For Local Usage
-            // tlDriver.set(new ChromeDriver(optionsManager.getChromeOptions()));
+            tlDriver.set(new ChromeDriver(optionsManager.getChromeOptions()));
  
             //For Grid Usage
-            try {
+            /*try {
                 tlDriver.set(new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), optionsManager.getChromeOptions()));
             } catch (MalformedURLException e) {
                 e.printStackTrace();
-            }
+            }*/
         }
     }
  

@@ -17,15 +17,4 @@
             </class>
         </classes>
     </test>
-    <test name="com.SecondTest">
-        <parameter name="browser" value="firefox"/>
-        <classes>
-            <class name="com.SecondTest">
-                <methods>
-                    <include name="GOOGLE1" />
-                    <include name="YANDEX" />
-                </methods>
-            </class>
-        </classes>
-    </test>
 </suite>
