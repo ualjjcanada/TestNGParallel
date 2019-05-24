@@ -1,14 +1,14 @@
 package com;
-
+ 
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.firefox.FirefoxProfile;
-
+ 
 public class OptionsManager {
-
+ 
     //Get Chrome Options
-    public static ChromeOptions getChromeOptions() {
+    public ChromeOptions getChromeOptions() {
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--start-maximized");
         options.addArguments("--ignore-certificate-errors");
@@ -20,9 +20,9 @@ public class OptionsManager {
                 .build();
         ChromeDriver driver = new ChromeDriver(service, options);*/
     }
-
+ 
     //Get Firefox Options
-    public static FirefoxOptions getFirefoxOptions () {
+    public FirefoxOptions getFirefoxOptions () {
         FirefoxOptions options = new FirefoxOptions();
         FirefoxProfile profile = new FirefoxProfile();
         //Accept Untrusted Certificates
