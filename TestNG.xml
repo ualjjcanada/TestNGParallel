@@ -1,20 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="Suite" parallel="tests" >
-    <listeners>
-        <listener class-name="com.InvokedMethodListener"></listener>
-    </listeners>
-    <test name="com.FirstTest">
-        <parameter name="browser" value="chrome"/>
-        <classes>
-            <class name="com.FirstTest">
-                <methods>
-                    <include name="GOOGLE0" />
-                    <include name="GOOGLE2" />
-                    <include name="GOOGLE3" />
-                    <include name="GOOGLE4" />
-                </methods>
-            </class>
-        </classes>
-    </test>
+<suite name="Suite" parallel="tests">
+	<listeners>
+		<listener class-name="com.InvokedMethodListener"></listener>
+	</listeners>
+	<test name="com.FirstTest">
+		<parameter name="browser" value="chrome" />
+		<classes>
+			<class name="com.FirstTest">
+				<methods>
+					<include name="GOOGLE0" />
+					<include name="GOOGLE2" />
+					<include name="GOOGLE3" />
+					<include name="GOOGLE4" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+	<test name="com.SecondTest">
+		<parameter name="browser" value="firefox" />
+		<classes>
+			<class name="com.SecondTest">
+				<methods>
+					<include name="GOOGLE1" />
+					<include name="YANDEX" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+
 </suite>

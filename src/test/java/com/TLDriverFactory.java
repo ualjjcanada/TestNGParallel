@@ -19,8 +19,11 @@ public class TLDriverFactory {
     public static synchronized void setDriver(String browser) {
         if (browser.equals("firefox")) {
             //For Local Usage
-            // tlDriver = ThreadLocal.withInitial(() -> new FirefoxDriver(optionsManager.getFirefoxOptions()));
- 
+        	/*// Descargar Firefox driver (Gecko Driver) de https://github.com/mozilla/geckodriver/releases y copiar en carpeta drivers
+    		System.setProperty("webdriver.gecko.driver", "drivers/geckodriver-v0.24.0-win64/geckodriver.exe");
+    		
+            tlDriver = ThreadLocal.withInitial(() -> new FirefoxDriver(optionsManager.getFirefoxOptions()));
+ 			*/
             //For Grid Usage
             try {
                 tlDriver.set(new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), optionsManager.getFirefoxOptions()));
@@ -29,14 +32,17 @@ public class TLDriverFactory {
             }
         } else if (browser.equals("chrome")) {
             //For Local Usage
-            tlDriver.set(new ChromeDriver(optionsManager.getChromeOptions()));
- 
+        	/*// Descargar Chrome driver de https://sites.google.com/a/chromium.org/chromedriver/downloads y copiar en carpeta drivers
+    		 System.setProperty("webdriver.chrome.driver", "drivers/chromedriver_win32/chromedriver.exe");
+    		
+        	tlDriver.set(new ChromeDriver(optionsManager.getChromeOptions()));
+ 			*/
             //For Grid Usage
-            /*try {
+            try {
                 tlDriver.set(new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), optionsManager.getChromeOptions()));
             } catch (MalformedURLException e) {
                 e.printStackTrace();
-            }*/
+            }
         }
     }
  
