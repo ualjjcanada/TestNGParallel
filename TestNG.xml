@@ -10,9 +10,7 @@
 			<class name="com.FirstTest">
 				<methods>
 					<include name="GOOGLE0" />
-					<include name="GOOGLE2" />
-					<include name="GOOGLE3" />
-					<include name="GOOGLE4" />
+					<include name="testLoginok" />
 				</methods>
 			</class>
 		</classes>
