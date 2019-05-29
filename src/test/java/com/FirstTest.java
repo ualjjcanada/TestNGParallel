@@ -67,6 +67,44 @@ public class FirstTest extends TestBase {
       Assert.assertEquals("Log in", driver.findElement(By.linkText("Log in")).getText());
     }
     
+    
+    
+    @Test
+    public void testRegisterKo() throws Exception {
+    	
+    	WebDriver driver = TLDriverFactory.getDriver();
+    	WebDriverWait wait = TLDriverFactory.getWait(driver);
+      driver.get("https://loginapphmis2019jjcanada.azurewebsites.net/Account/Login");
+      driver.findElement(By.linkText("loginHMIS2019")).click();
+      driver.findElement(By.linkText("Register")).click();
+      driver.findElement(By.id("Input_Email")).clear();
+      driver.findElement(By.id("Input_Email")).sendKeys("jjcanada@ual.es");
+      driver.findElement(By.id("Input_Password")).clear();
+      driver.findElement(By.id("Input_Password")).sendKeys("AAaa11!!");
+      driver.findElement(By.id("Input_ConfirmPassword")).clear();
+      driver.findElement(By.id("Input_ConfirmPassword")).sendKeys("AAaa11!!");
+      driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Confirm password'])[1]/following::button[1]")).click();
+      Assert.assertEquals("User name 'jjcanada@ual.es' is already taken.", driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Create a new account.'])[1]/following::li[1]")).getText());
+    }
+
+    @Test
+    public void testRegistroKoYaExiste() throws Exception {
+    	WebDriver driver = TLDriverFactory.getDriver();
+    	WebDriverWait wait = TLDriverFactory.getWait(driver);
+    	
+      driver.get("http://loginapphmis2019jjcanada.azurewebsites.net/");
+      driver.findElement(By.linkText("Register")).click();
+      driver.findElement(By.id("Input_Email")).clear();
+      driver.findElement(By.id("Input_Email")).sendKeys("hola2019@ual.es");
+      driver.findElement(By.id("Input_Password")).clear();
+      driver.findElement(By.id("Input_Password")).sendKeys("ABab12!!");
+      driver.findElement(By.id("Input_ConfirmPassword")).clear();
+      driver.findElement(By.id("Input_ConfirmPassword")).sendKeys("ABab12!!");
+      driver.findElement(By.xpath("//button[@type='submit']")).click();
+      Assert.assertEquals("User name 'hola2019@ual.es' is already taken.", driver.findElement(By.cssSelector("div.text-danger.validation-summary-errors > ul > li")).getText());
+      Assert.assertEquals("Log in", driver.findElement(By.linkText("Log in")).getText());
+    }
+
 
     private boolean isElementPresent(WebDriver driver, By by) {
       try {
